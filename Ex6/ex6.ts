@@ -69,29 +69,28 @@ export class People {
         }
     }
 
-    updateById(id: number, list: Array<Person>, name?: string, bio?: string, input?: string, valuePerson?: string): void {
+    updateById(id: number, name?: string, bio?: string, input?: string, valuePerson?: string): void {
         if (this.paradigm === EnumSwitchParadigm.Functional) {
-            const index: number = list.findIndex(person => person["id"] === id);
+            const index: number = this.list.findIndex(person => person["id"] === id);
 
             if (index == -1) {
                 console.log("Id doesn't exist, so list can't be updated.");
             } else {
-                const nameList: string = list[index]["name"] = name;
-                const bioList: string = list[index]["bio"] = bio;
+                const nameList: string = this.list[index]["name"] = name;
+                const bioList: string = this.list[index]["bio"] = bio;
 
                 name ? nameList : undefined;
                 bio ? bioList : undefined;
             }
         } else {
-            for (let i = 0; i < list.length; i++) {
-                if (list[i].id === id) {
+            for (let i = 0; i < this.list.length; i++) {
+                if (this.list[i].id === id) {
                     if (input === 'name')
-                        list[i].name = valuePerson;
+                        this.list[i].name = valuePerson;
                     else if (input === 'bio')
-                        list[i].bio = valuePerson;
+                        this.list[i].bio = valuePerson;
                 }
             }
-            console.log("Id doesn't exist, so list can't be updated.");
         }
     }
 
