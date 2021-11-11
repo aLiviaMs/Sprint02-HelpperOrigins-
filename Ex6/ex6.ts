@@ -33,14 +33,23 @@ type PersonKeyof = keyof Person;
 
 
 export class People {
+    /**
+     * Atributos
+     */
     private list: Array<Person>;
-    readonly paradigm: EnumSwitchParadigm;
+    private readonly paradigm: EnumSwitchParadigm;
 
     constructor(listPeople: Array<Person>, paradigm: EnumSwitchParadigm) {
         this.list = listPeople;
         this.paradigm = paradigm;
     }
 
+    /**
+     * 
+     * @param id 
+     * @param personKeyof 
+     * @returns a pessoa com seu respectivo Id passado pelo parametro.
+     */
     getPersonById(id: number, personKeyof: PersonKeyof): number | string | undefined {
         if (this.paradigm === EnumSwitchParadigm.Functional) {
             const person: Person | undefined = this.list.find((person: Person) => person.id === id)
@@ -58,6 +67,12 @@ export class People {
         }
     }
 
+
+    /**
+     * Irá deletar a pessoa pelo id passado.
+     * 
+     * @param id 
+     */
     deleteById(id: number): void {
         if (this.paradigm === EnumSwitchParadigm.Functional) {
             this.list = this.list.filter((person: Person) => person.id !== id);
@@ -69,6 +84,14 @@ export class People {
         }
     }
 
+    /**
+     * 
+     * @param id 
+     * @param name 
+     * @param bio uma string para determinar se quer ser alterado a bio no paradigma imperativo.
+     * @param input uma string para determinar se quer ser alterado o nome no paradigma imperativo.
+     * @param valuePerson string com o novo valor da bio/name do PersonId.
+     */
     updateById(id: number, name?: string, bio?: string, input?: string, valuePerson?: string): void {
         if (this.paradigm === EnumSwitchParadigm.Functional) {
             const index: number = this.list.findIndex(person => person["id"] === id);

@@ -8,6 +8,11 @@ console.log(" ");
 console.log("Imperativo: ");
 test(new People(lista, EnumSwitchParadigm.Imperative));
 
+/**
+ * Função para realizar os testes nos paradigmas.
+ * 
+ * @param peopleTest 
+ */
 function test(peopleTest: People) {
 
     console.log("Bio: " + peopleTest.getPersonById(1, "bio"));
