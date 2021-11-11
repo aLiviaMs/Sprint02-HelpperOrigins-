@@ -1,7 +1,14 @@
 class VowelCounter {
+    /**
+     * Atributos
+     */
     private static vowels: string[] = ['a', 'e', 'i', 'o', 'u'];
 
-    //retorna o tanto de vogais existentes na palavra recebida.
+    /**
+     * 
+     * @param word 
+     * @returns o tanto de vogais existentes na palavra recebida.
+     */
     static count(word: string): number {
         const totalVowels: string[] = word.toLowerCase().split("").filter((letter: string) => this.vowels.includes(letter));
         return totalVowels.length;
