@@ -42,7 +42,7 @@ export class List {
      * 
      * @returns o maior valor da lista.
      */
-    public get maxNumber(): number {
+    private get maxNumber(): number {
         if (this._paradigm === EnumSwitchParadigm.Functional) {
             return Math.max(...this._list);
         } else {
